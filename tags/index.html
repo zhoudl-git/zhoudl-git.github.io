@@ -5,8 +5,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Tag: 工具, 苍穹盛夏的博客">
-    <meta name="description" content="Tag: 工具 | 苍穹盛夏的博客">
+    <meta name="keywords" content="Tags, 苍穹盛夏的博客">
+    <meta name="description" content="Tags | 苍穹盛夏的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Tag: 工具 | 苍穹盛夏的博客</title>
+    <title>Tags | 苍穹盛夏的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -313,7 +313,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 
                 <a href="/tags/工具/" title="工具: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active " data-tagname="工具" style="background-color: #F9EBEA;">工具
+                             chip-default " data-tagname="工具" style="background-color: #F9EBEA;">工具
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -339,45 +339,32 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     </div>
 </div>
 
-    <div class="container">
-        
+    
+    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
+<style type="text/css">
+    #tag-wordcloud {
+        width: 100%;
+        height: 300px;
+    }
+</style>
 
-        <article>
-            <div class="row tags-posts">
-                
-                
-                <div class="article tag-post col s12 m6 l4" data-tags="工具, 猿说" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2019/01/29/EveryThing如何用到极致？/">
-                            <div class="card-image tag-image">
-                                
-                                
-                                <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="EveryThing如何用到极致？">
-                                
-                                <span class="card-title">EveryThing如何用到极致？</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-29
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-user fa-fw"></i>
-                                    zhoudl
-                                    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="tag-wordcloud" class="card-content"></div>
     </div>
-</main>
+</div>
 
+<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript">
+    
+
+    $('#tag-wordcloud').jQCloud([{"text":"工具","weight":1,"link":"http://yoursite.com/tags/工具/"},{"text":"猿说","weight":2,"link":"http://yoursite.com/tags/猿说/"},{"text":"框架","weight":1,"link":"http://yoursite.com/tags/框架/"}], {
+        autoResize: true
+    });
+</script>
+    
+
+</main>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">

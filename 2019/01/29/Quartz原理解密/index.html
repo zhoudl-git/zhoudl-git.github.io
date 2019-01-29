@@ -29,7 +29,7 @@ Author: Dorae原文链接：https://juejin.im/post/5c3bf24951882523d3201c54?utm_
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 </head>
 
@@ -320,6 +320,20 @@ Author: Dorae原文链接：https://juejin.im/post/5c3bf24951882523d3201c54?utm_
                 </div>
 
                 
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        3k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        11 Min
+                    </div>
+                    
+                
 				
 				
                     <div id="busuanzi_container_page_pv" class="info-break-policy">
@@ -440,7 +454,24 @@ Author: Dorae原文链接：https://juejin.im/post/5c3bf24951882523d3201c54?utm_
 <p>Quartz的整个启动流程如图所示。</p>
 <p><img src="https://user-gold-cdn.xitu.io/2019/1/14/1684a2a64b6a1c91?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
 <h3 id="2-QuartzSchedulerThread线程"><a href="#2-QuartzSchedulerThread线程" class="headerlink" title="2. QuartzSchedulerThread线程"></a>2. QuartzSchedulerThread线程</h3><p>QuartzSchedulerThread线程是实际执行任务调度的线程，其中主要代码如下。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (!halted.get()) &#123;</span><br><span class="line">	<span class="keyword">int</span> availThreadCount = qsRsrcs.getThreadPool().blockForAvailableThreads();</span><br><span class="line">	triggers = qsRsrcs.getJobStore().acquireNextTriggers(now + idleWaitTime,</span><br><span class="line">			Math.min(availThreadCount, qsRsrcs.getMaxBatchSize()), qsRsrcs.getBatchTimeWindow());</span><br><span class="line">	<span class="keyword">long</span> triggerTime = triggers.get(<span class="number">0</span>).getNextFireTime().getTime();</span><br><span class="line">	<span class="keyword">long</span> timeUntilTrigger = triggerTime - now;</span><br><span class="line">	<span class="keyword">while</span> (timeUntilTrigger &gt; <span class="number">2</span>) &#123;</span><br><span class="line">		now = System.currentTimeMillis();</span><br><span class="line">		timeUntilTrigger = triggerTime - now;</span><br><span class="line">	&#125;</span><br><span class="line">	List&lt;TriggerFiredResult&gt; bndle = qsRsrcs.getJobStore().triggersFired(triggers);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; res.size(); i++) &#123;</span><br><span class="line">		JobRunShell shell = qsRsrcs.getJobRunShellFactory().createJobRunShell(bndle);</span><br><span class="line">		shell.initialize(qs);</span><br><span class="line">		qsRsrcs.getThreadPool().runInThread(shell);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>halted<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> availThreadCount <span class="token operator">=</span> qsRsrcs<span class="token punctuation">.</span><span class="token function">getThreadPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">blockForAvailableThreads</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    triggers <span class="token operator">=</span> qsRsrcs<span class="token punctuation">.</span><span class="token function">getJobStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">acquireNextTriggers</span><span class="token punctuation">(</span>now <span class="token operator">+</span> idleWaitTime<span class="token punctuation">,</span>
+            Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>availThreadCount<span class="token punctuation">,</span> qsRsrcs<span class="token punctuation">.</span><span class="token function">getMaxBatchSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> qsRsrcs<span class="token punctuation">.</span><span class="token function">getBatchTimeWindow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">long</span> triggerTime <span class="token operator">=</span> triggers<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getNextFireTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">long</span> timeUntilTrigger <span class="token operator">=</span> triggerTime <span class="token operator">-</span> now<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>timeUntilTrigger <span class="token operator">></span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        now <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        timeUntilTrigger <span class="token operator">=</span> triggerTime <span class="token operator">-</span> now<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    List<span class="token operator">&lt;</span>TriggerFiredResult<span class="token operator">></span> bndle <span class="token operator">=</span> qsRsrcs<span class="token punctuation">.</span><span class="token function">getJobStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">triggersFired</span><span class="token punctuation">(</span>triggers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> res<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        JobRunShell shell <span class="token operator">=</span> qsRsrcs<span class="token punctuation">.</span><span class="token function">getJobRunShellFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createJobRunShell</span><span class="token punctuation">(</span>bndle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        shell<span class="token punctuation">.</span><span class="token function">initialize</span><span class="token punctuation">(</span>qs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        qsRsrcs<span class="token punctuation">.</span><span class="token function">getThreadPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">runInThread</span><span class="token punctuation">(</span>shell<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <ol>
 <li>先获取线程池中的可用线程数量（若没有可用的会阻塞，直到有可用的）；</li>
 <li>获取30m内要执行的trigger(即acquireNextTriggers)： 获取trigger的锁，通过select …for update方式实现；获取30m内（可配置）要执行的triggers（需要保证集群节点的时间一致），若@ConcurrentExectionDisallowed且列表存在该条trigger则跳过，否则更新trigger状态为ACQUIRED(刚开始为WAITING)；插入firedTrigger表，状态为ACQUIRED;（注意：在RAMJobStore中，有个timeTriggers，排序方式是按触发时间nextFireTime排的；JobStoreSupport从数据库取出triggers时是按照nextFireTime排序）;</li>
@@ -795,6 +826,9 @@ Author: Dorae原文链接：https://juejin.im/post/5c3bf24951882523d3201c54?utm_
             <a href="https://hexo.io/" target="_blank">Hexo</a> 的
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">19.8k</span>
             
 
             

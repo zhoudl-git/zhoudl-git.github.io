@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 </head>
 
@@ -317,6 +317,20 @@
                 </div>
 
                 
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>Word Count:&nbsp;&nbsp;
+                        4.9k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>Read Times:&nbsp;&nbsp;
+                        16 Min
+                    </div>
+                    
+                
 				
 				
                     <div id="busuanzi_container_page_pv" class="info-break-policy">
@@ -359,7 +373,8 @@
 <p>　　能用其它类型如int等的尽量不要用String类型，这也是避免误用的方法。</p>
 <p><strong>e）</strong> <strong>异常</strong></p>
 <p>　　接口应当最真实的反应出执行中的问题，更不能用聪明的代码做某些特别处理。经常看到一些同学接口代码里一个try catch，不管内部抛了什么异常，捕获后返回空集合。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`<span class="keyword">public</span>` `<span class="function">List&lt;Integer&gt; <span class="title">test</span><span class="params">()</span> </span>&#123;``        ``<span class="keyword">try</span>` `&#123;``            ``...``        ``&#125; ``<span class="keyword">catch</span>` `(Exception e) &#123;``            ``<span class="keyword">return</span>` `Collections.emptyList();``        ``&#125;``    ``&#125;`</span><br></pre></td></tr></table></figure>
+<pre class=" language-java"><code class="language-java">`<span class="token keyword">public</span>` `List<span class="token operator">&lt;</span>Integer<span class="token operator">></span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>``        ``<span class="token keyword">try</span>` `<span class="token punctuation">{</span>``            ``<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>``        ``<span class="token punctuation">}</span> ``<span class="token keyword">catch</span>` `<span class="token punctuation">(</span>Exception e<span class="token punctuation">)</span> <span class="token punctuation">{</span>``            ``<span class="token keyword">return</span>` `Collections<span class="token punctuation">.</span><span class="token function">emptyList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>``        ``<span class="token punctuation">}</span>``    ``<span class="token punctuation">}</span>`
+</code></pre>
 <p>　　这让使用方很无奈，很多时候不知道是自己参数传的问题，还是服务方内部的问题，而一旦未知就可能误用了。</p>
 <h4 id="2-2-流量控制，按服务分配流量，避免滥用"><a href="#2-2-流量控制，按服务分配流量，避免滥用" class="headerlink" title="2.2 流量控制，按服务分配流量，避免滥用"></a><strong>2.2 流量</strong>控制，按服务分配流量，避免滥用</h4><p>　　相信很多做过高并发服务的同学都碰到类似事件：某天A君突然发现自己的接口请求量突然涨到之前的10倍，没多久该接口几乎不可使用，并引发连锁反应导致整个系统崩溃。</p>
 <p>　　为什么会涨10倍，难道是接口被外人攻击了，以我的经验看一般内部人“作案”可能性更大。之前还见过有同学mapreduce job调用线上服务，分分钟把服务搞死。</p>
@@ -398,7 +413,7 @@
 <p>　　减少调用的次数？经常看到有同学在循环里用redis/tair的get，如果意识到这里面的网络开销的话就应该使用批量处理；又如在推荐服务中经常遇到要去多个地方去取数据，一般采用多线程并行去取数据，这个时候不仅耗费cpu资源，也耗费网络资源，一种在实际中常常采用的方法就是先将很多数据离线存储到一块 ，这时候线上服务只要一个请求就能将所有数据获取。</p>
 <p><strong>b）减少传输的数据量</strong></p>
 <p>　　一种方法是压缩后传输，还有一种就是按需传输，比如经常遇到的getData(int id)，如果我们返回该id对应的Data所有信息，一来人家不需要，二来数据量传输太大，这个时候可以改为getData(int id, List<string> fields)，使用方传输相应的字段过来，服务端只返回使用方需要的字段即可。</string></p>
-<h5 id="3-2-4-磁盘资源怎么限制？"><a href="#3-2-4-磁盘资源怎么限制？" class="headerlink" title="3.2.4 磁盘资源怎么限制？"></a>3.2.4 <strong>磁盘资源怎么限制？</strong></h5><pre><code>打日志要控制量，并定期清理。1）只打印关键的异常日志；2）对日志大小进行监控报警。我有一次就遇到了第三方服务挂了，然后我这边就不断打印调用该第三方服务异常的日志，本来我的服务有降级方案，如果第三方服务挂了会自动使用其它服务，但是突然收到报警说我服务挂了，登上机器一看才知道是磁盘不够导致的崩溃；3）定期对日志进行清理，比如用crontab，每隔几天对日志进行清理；4）打印日志到远端，对于一些比较重要的日志可以直接将日志打印到远端HDFS文件系统里；
+<h5 id="3-2-4-磁盘资源怎么限制？"><a href="#3-2-4-磁盘资源怎么限制？" class="headerlink" title="3.2.4 磁盘资源怎么限制？"></a>3.2.4 <strong>磁盘资源怎么限制？</strong></h5><pre><code> 打日志要控制量，并定期清理。1）只打印关键的异常日志；2）对日志大小进行监控报警。我有一次就遇到了第三方服务挂了，然后我这边就不断打印调用该第三方服务异常的日志，本来我的服务有降级方案，如果第三方服务挂了会自动使用其它服务，但是突然收到报警说我服务挂了，登上机器一看才知道是磁盘不够导致的崩溃；3）定期对日志进行清理，比如用crontab，每隔几天对日志进行清理；4）打印日志到远端，对于一些比较重要的日志可以直接将日志打印到远端HDFS文件系统里；
 </code></pre><h4 id="3-3-避免单点"><a href="#3-3-避免单点" class="headerlink" title="3.3 避免单点"></a>3.3 避免单点</h4><p>　　不要把鸡蛋放在一个篮子上！从大层次上讲服务可以多机房部署、异地多活；从自己设计角度上讲，服务应该能做到水平扩展。</p>
 <p>　　对于很多无状态的服务，通过nginx、zookeeper能轻松实现水平扩展；</p>
 <p>　　对数据服务来说，怎么避免单点呢？简而言之、可以通过分片、分层等方式来实现，后面会有个博文总结。</p>
@@ -652,6 +667,9 @@
             <a href="https://hexo.io/" target="_blank">Hexo</a> 的
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">19.8k</span>
             
 
             
