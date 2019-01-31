@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Alibaba Cloud Toolkit工具一键部署本地应用到ECS服务器</title>
+      <link href="/2019/01/31/alibaba-cloud-toolkit-gong-ju-yi-jian-bu-shu-ben-di-ying-yong-dao-ecs-fu-wu-qi/"/>
+      <url>/2019/01/31/alibaba-cloud-toolkit-gong-ju-yi-jian-bu-shu-ben-di-ying-yong-dao-ecs-fu-wu-qi/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Alibaba-Cloud-Toolkit工具一键部署本地应用到ECS服务器"><a href="#Alibaba-Cloud-Toolkit工具一键部署本地应用到ECS服务器" class="headerlink" title="Alibaba Cloud Toolkit工具一键部署本地应用到ECS服务器"></a>Alibaba Cloud Toolkit工具一键部署本地应用到ECS服务器</h2><p><img src="https://img-blog.csdnimg.cn/20181209133458931.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1lDbGltYg==,size_16,color_FFFFFF,t_70" alt="Alibaba Cloud Toolkit"></p><h3 id="什么是-Alibaba-Cloud-Toolkit"><a href="#什么是-Alibaba-Cloud-Toolkit" class="headerlink" title="什么是 Alibaba Cloud Toolkit"></a>什么是 Alibaba Cloud Toolkit</h3><p>Alibaba Cloud Toolkit （后文简称 Cloud Toolkit）是阿里云针对 IDE 平台为开发者提供的一款插件，用于帮助开发者高效开发并部署适合在云端运行的应用。在本地完成应用程序的开发、调试和测试后，可以使用在 IED （如 Eclipse 或 IntelliJ）中安装的 Cloud Toolkit 插件，通过图形配置的方式连接到云端部署环境并将应用程序快如部署到云端。</p><blockquote><p>说明：目前 Cloud Toolkit 仅支持 Eclipse、Intellij 等其它开发环境开发中，请您持续关注 Cloud Tookit 动态。</p></blockquote><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>官方有提供的文档说明:</p><pre><code>https://help.aliyun.com/product/29966.html</code></pre><h3 id="使用IDEA安装和配置Cloud-Toolkit"><a href="#使用IDEA安装和配置Cloud-Toolkit" class="headerlink" title="使用IDEA安装和配置Cloud Toolkit"></a>使用IDEA安装和配置Cloud Toolkit</h3><h4 id="在idea上安装Alibaba-Cloud-Toolkit插件"><a href="#在idea上安装Alibaba-Cloud-Toolkit插件" class="headerlink" title="在idea上安装Alibaba Cloud Toolkit插件"></a>在idea上安装Alibaba Cloud Toolkit插件</h4><p>到 Idea 插件库中进行下载，如下图：</p><p><img src="http://pkon92vqd.bkt.clouddn.com/1.png" alt=""></p><p>如果插件下载速度比较慢，稍等一会，因为是国外网站，下载完成后需要重启 idea 应用后生效。</p><h4 id="配置Alibaba-Cloud-Toolkit的Account信息"><a href="#配置Alibaba-Cloud-Toolkit的Account信息" class="headerlink" title="配置Alibaba Cloud Toolkit的Account信息"></a>配置Alibaba Cloud Toolkit的Account信息</h4><p><img src="http://pkon92vqd.bkt.clouddn.com/2.png" alt=""></p><p><img src="http://pkon92vqd.bkt.clouddn.com/3.png" alt=""></p><p>其中 Access Key 和 Access Key Secret 信息可以到阿里云控制台查询获得</p><p><img src="http://pkon92vqd.bkt.clouddn.com/3.5.png" alt=""></p><p>创建完成并配置好Account后，在 ECS on Alibaba Cloud 视图中可以看到，会检索到你的实例</p><p><img src="http://pkon92vqd.bkt.clouddn.com/4.png" alt=""></p><h4 id="开始部署项目到ECS服务器"><a href="#开始部署项目到ECS服务器" class="headerlink" title="开始部署项目到ECS服务器"></a>开始部署项目到ECS服务器</h4><p>鼠标选中你的项目，然后右键，找到 Alibaba Cloud 选项</p><p><img src="http://pkon92vqd.bkt.clouddn.com/5.png" alt=""></p><p>然后填写其他信息，项目部署位置等，如果你的Account配置没有问题，则会自动账户显示对应的ECS服务器，在发布时，需要手动选择某台服务器，一定要选择哦！</p><p>对于Command的编写，可以参考官方文档</p><pre><code>https://yq.aliyun.com/articles/665693</code></pre><p><img src="http://pkon92vqd.bkt.clouddn.com/6.png" alt=""></p><p>配置成功后，可以点击Run运行程序，此时会自动为我们编译并上传到阿里云服务器中，发布到地址就是上图中的Deploy Location中的路径，发布前如果需要Maven执行，一定不要忘记配置上图中Maven的命令，中间的Command是在上传到服务器成功后执行的命令，主要用于应用的启动停止重启等。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>好了，到此如果没有其他问题的话，你就会已经发布成功了，从此失去手动打包、上传再发布的繁琐过程了，这个插件针对个人开发用户来说是极其友好的，因为个人开发者一般不会像企业级开发一样部署 Jekins 等大型部署工具，而这个时候如果使用 Alibaba Cloud Toolkit ,在信息配置好的情况可以说基本就是一键部署！</p><p>再贴一下官网地址：</p><pre><code>https://www.aliyun.com/product/cloudtoolkit</code></pre><p>官网介绍的更加详细，也有官方钉钉群，大家感兴趣的可以加入进行深入交流。</p><p><img src="https://yqfile.alicdn.com/5685e931e06cd61faa41dee0ad46bf251fe56837.png" alt="5685e931e06cd61faa41dee0ad46bf251fe56837"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> 服务器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>如何在面试中介绍自己的项目经验</title>
       <link href="/2019/01/29/ru-he-zai-mian-shi-zhong-jie-shao-zi-ji-de-xiang-mu-jing-yan/"/>
       <url>/2019/01/29/ru-he-zai-mian-shi-zhong-jie-shao-zi-ji-de-xiang-mu-jing-yan/</url>
