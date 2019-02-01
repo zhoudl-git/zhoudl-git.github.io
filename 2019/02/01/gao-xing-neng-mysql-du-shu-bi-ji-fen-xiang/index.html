@@ -6,8 +6,8 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="高性能MySQL读书笔记分享, 程序猿杂货铺的博客">
-    <meta name="description" content="
-很开心终于更新完了MySQL进阶学习系列文章，其中有原创内容，也有转载你内容，可能有人会问，为什么不全部原创？其实我是写好原自己的文章了（同步更新到了我的博客），但是通过找一些资料，发现一些文章确实要比我写的内容好上很多，为了在公众号呈现">
+    <meta name="description" content="引言
+很开心终于更新完了MySQL进阶学习系列文章，其中有原创内容，也有转载你内容，可能有人会问，为什么不全部原创？其实我是写好原自己的文章了（同步更新到了我的博客），但是通过找一些资料，发现一些文章确实要比我写的内容好上很多，为了在公众号">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -426,7 +426,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        315
+                        328
                     </div>
                     
 
@@ -449,11 +449,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
+                <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><blockquote>
 <p>很开心终于更新完了MySQL进阶学习系列文章，其中有原创内容，也有转载你内容，可能有人会问，为什么不全部原创？其实我是写好原自己的文章了（同步更新到了我的博客），但是通过找一些资料，发现一些文章确实要比我写的内容好上很多，为了在公众号呈现更好的内容给大家，也就取其精华去其糟粕，不重复造轮子，所以有些我不擅长，掌握的不好的方面选择了文章转载，例如最后一篇就是阿飞大神所写 <img src="https://res.wx.qq.com/mpres/htmledition/images/icon/common/emotion_panel/smiley/smiley_79.png" alt="img"></p>
 </blockquote>
 <p>为了大家更方便的观看，在本文对MySQL系列文章做一个梳理：</p>
-<p><a href="http://mp.weixin.qq.com/s?__biz=MzI1Mzg4OTMxNQ==&amp;mid=2247484107&amp;idx=1&amp;sn=6788f758401294ade9f6cf1efa097080&amp;chksm=e9ccdc87debb5591e6f43cb922a49d6badaa9271e9a79250d6730acd9214b81788f8026134ec&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">【MySQL（一）| 开发人心里都该有的那颗B树</a><a href="http://mp.weixin.qq.com/s?__biz=MzI1Mzg4OTMxNQ==&amp;mid=2247484107&amp;idx=1&amp;sn=6788f758401294ade9f6cf1efa097080&amp;chksm=e9ccdc87debb5591e6f43cb922a49d6badaa9271e9a79250d6730acd9214b81788f8026134ec&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">】</a></p>
+<h3 id="读书笔记汇总"><a href="#读书笔记汇总" class="headerlink" title="读书笔记汇总"></a>读书笔记汇总</h3><p><a href="http://mp.weixin.qq.com/s?__biz=MzI1Mzg4OTMxNQ==&amp;mid=2247484107&amp;idx=1&amp;sn=6788f758401294ade9f6cf1efa097080&amp;chksm=e9ccdc87debb5591e6f43cb922a49d6badaa9271e9a79250d6730acd9214b81788f8026134ec&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">【MySQL（一）| 开发人心里都该有的那颗B树</a><a href="http://mp.weixin.qq.com/s?__biz=MzI1Mzg4OTMxNQ==&amp;mid=2247484107&amp;idx=1&amp;sn=6788f758401294ade9f6cf1efa097080&amp;chksm=e9ccdc87debb5591e6f43cb922a49d6badaa9271e9a79250d6730acd9214b81788f8026134ec&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">】</a></p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzI1Mzg4OTMxNQ==&amp;mid=2247484112&amp;idx=1&amp;sn=0dc02de1ef7da83f5b717cb811273fa2&amp;chksm=e9ccdc9cdebb558addb8b8f94b2d5e775650e8bc529a9ca2b8a3315b56e26b11d5c99bc47eb6&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">【MySQL（二）| MySQL索引机制】</a></p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzI1Mzg4OTMxNQ==&amp;mid=2247484138&amp;idx=1&amp;sn=77f222160f8f26cbb868eb7a4547e7f1&amp;chksm=e9ccdca6debb55b0e7e565aa2b69ca6b05e5f965f84a0317fa6c26191a229c00aa03f1757228&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">【MySQL（三）| 五分钟搞清楚MySQL事务隔离级别】</a></p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzI1Mzg4OTMxNQ==&amp;mid=2247484201&amp;idx=1&amp;sn=2212704ce7a901d972d44b34b5a653bd&amp;chksm=e9ccdd65debb54732caa0ff29759f3f380bd7b0bad09f6a42c50fdd12b78dfc6bf099200588a&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">【MySQL（四）| 五分钟搞清楚InnoDB锁机制】</a></p>
@@ -461,8 +461,8 @@
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzI1Mzg4OTMxNQ==&amp;mid=2247484267&amp;idx=1&amp;sn=553aeb84efab031a50b7d778367a5a7e&amp;chksm=e9ccdd27debb5431621f7d7e9ecbf788b3c65c73916d62555992f5d4e961e6e9b1d32bfadce1&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">【MySQL（六）| 详细分析MySQL事务日志redo log】</a></p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzI1Mzg4OTMxNQ==&amp;mid=2247484273&amp;idx=1&amp;sn=223e6018e7158876feb4fcc998fd2c81&amp;chksm=e9ccdd3ddebb542bbc0774f8f4acbd377a908219bc458fa8775999ce2692a93c746b57691940&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">【MySQL（七）| 详细分析MySQL事务日志undo log】</a></p>
 <p><a href="http://mp.weixin.qq.com/s?__biz=MzI1Mzg4OTMxNQ==&amp;mid=2247484277&amp;idx=1&amp;sn=7ada50a204bdb5e85700f6f6b77d5cc6&amp;chksm=e9ccdd39debb542fce91885b917ef5b887ef6f1f0caeab64202a8b55b1b83cdce257d07d4e27&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">【MySQL（八）| 深入InnoDB空间及索引页文件结构】</a></p>
-<p>欢迎大家关注我的个人公众号，期待着你的到来，我们共同进步！</p>
-<p><img src="https://img-blog.csdn.net/20180925183656761?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pCeWxhbnQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="在这里插入图片描述"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<h3 id="公众号介绍"><a href="#公众号介绍" class="headerlink" title="公众号介绍"></a>公众号介绍</h3><p>欢迎大家关注我的个人公众号，期待着你的到来，我们共同进步！</p>
+<p><img src="https://img-blog.csdn.net/20180925183656761?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1pCeWxhbnQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="个人公众号"></p>
 
             </div>
             <hr>
@@ -639,8 +639,8 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-很开心终于更新完了MySQL进阶学习系列文章，其中有原创内容，也有转载你内容，可能有人会问，为什么不全部原创？其实我是写好原自己的文章了（同步更新到了我的博客），但是通过找一些资料，发现一些文章确实要比我写的内容好上很多，为了在公众号呈现</div>
+                    <div class="summary">引言
+很开心终于更新完了MySQL进阶学习系列文章，其中有原创内容，也有转载你内容，可能有人会问，为什么不全部原创？其实我是写好原自己的文章了（同步更新到了我的博客），但是通过找一些资料，发现一些文章确实要比我写的内容好上很多，为了在公众号</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-01
