@@ -5,10 +5,12 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="EveryThing如何用到极致？, 程序猿杂货铺的博客">
-    <meta name="description" content="
+    <meta name="keywords" content="JVM从入门到实战---01 JVM基本介绍, 程序猿杂货铺的博客">
+    <meta name="description" content="什么是 JVM先来看下百度百科的解释：
 
-摘要：Everything几乎是每个职场人必备的效率工具，但同事们都只用它的一两个基本功能，并没有发挥出该软件的真正效率。实际上，把Everything的功能用到极致能够成倍的提升我们的工作效率，本文尝试详述那些藏在角落里的功能，帮您把">
+JVM 是 Java Virtual Machine（Java 虚拟机）的缩写，JVM 是一种用于计算设备的规范，它是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的。
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>EveryThing如何用到极致？ | 程序猿杂货铺的博客</title>
+    <title>JVM从入门到实战---01 JVM基本介绍 | 程序猿杂货铺的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -269,13 +271,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        EveryThing如何用到极致？
+                        JVM从入门到实战---01 JVM基本介绍
                     </div>
                 </div>
             </div>
@@ -388,12 +390,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/工具/" target="_blank">
-                                <span class="chip bg-color">工具</span>
+                            <a href="/tags/Java/" target="_blank">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
-                            <a href="/tags/猿说/" target="_blank">
-                                <span class="chip bg-color">猿说</span>
+                            <a href="/tags/JVM/" target="_blank">
+                                <span class="chip bg-color">JVM</span>
                             </a>
                         
                     </div>
@@ -404,8 +406,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Windows软件/" class="post-category" target="_blank">
-                                Windows软件
+                            <a href="/categories/JVM/" class="post-category" target="_blank">
+                                JVM
                             </a>
                         
                     </div>
@@ -416,21 +418,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-01-29
+                    2019-03-12
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.4k
+                        1.9k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        6 分
                     </div>
                     
                 
@@ -446,42 +448,96 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="https://upload-images.jianshu.io/upload_images/2346551-cf440b8ac3c91878.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="Everything是国民最爱软件"></p>
-<hr>
-<p>摘要：Everything几乎是每个职场人必备的效率工具，但同事们都只用它的一两个基本功能，并没有发挥出该软件的真正效率。实际上，把Everything的功能用到极致能够成倍的提升我们的工作效率，本文尝试详述那些藏在角落里的功能，帮您把它的潜力发挥到极致。</p>
-<hr>
-<h2 id="0-Everything的前世今生"><a href="#0-Everything的前世今生" class="headerlink" title="0. Everything的前世今生"></a>0. Everything的前世今生</h2><p>Everything是澳大利亚人David Carpenter开发的免费文件检索工具，自从问世以来，因其占用内存小，搜索迅捷，获得了全世界windows用户的追捧，是职场同仁们必备的利器。拿我自己来说吧，我的电脑里有60万个文件夹和文件，如果没有everything，我不知道找到需要的文件要多么痛苦。</p>
-<p>下面我们就按使用场景说说Everything的用法。</p>
-<h2 id="1-Everything的使用场景"><a href="#1-Everything的使用场景" class="headerlink" title="1. Everything的使用场景"></a>1. Everything的使用场景</h2><h3 id="1-1-搜索包含某个关键词的文件名，怎么办？"><a href="#1-1-搜索包含某个关键词的文件名，怎么办？" class="headerlink" title="1.1 搜索包含某个关键词的文件名，怎么办？"></a>1.1 搜索包含某个关键词的文件名，怎么办？</h3><p>这个是同学们最常用的功能了，即在搜索框输入你要查询的关键字，例如，我想查询包含coffee到文件名，就直接在搜索框里输入coffee，就可以了，效果如下。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2346551-9a40981c21bca250.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/848/format/webp" alt="搜索包含coffee的文件名"></p>
-<h3 id="1-2-要搜索的文件名中同时包含多个关键词怎么办？"><a href="#1-2-要搜索的文件名中同时包含多个关键词怎么办？" class="headerlink" title="1.2 要搜索的文件名中同时包含多个关键词怎么办？"></a>1.2 要搜索的文件名中同时包含多个关键词怎么办？</h3><p>如果想搜索的文件名中同时包含多个关键词，可以在搜索框中顺序敲入那几个关键词，中间用空格分开，例如包含hpe和win的文件，可以输入hpe然后跟着一个空格，然后输入win，结果如下图所示：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2346551-2c11dab4b349e415.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/844/format/webp" alt="搜索包含两个关键词的文件名"></p>
-<p>但这种方法查出来的结果文件，名字中的关键词出现的顺序不一定是你输入的关键词的顺序。如果你想查询的结果必须按照你输入的顺序，可以使用<em>关键词</em>关键词<em>的方式。例如，</em>hpe<em>win</em>，你看，下面出现的结果，都是hpe在前，win在后的文件名。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2346551-e0ba4b2e70cbe26d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/845/format/webp" alt=""></p>
-<p>另一种输入多关键词的方法，可以确保结果中关键词的顺序</p>
-<h3 id="1-3-想要搜索的文件名中包含多个关键词中的一个就可以，怎么办？"><a href="#1-3-想要搜索的文件名中包含多个关键词中的一个就可以，怎么办？" class="headerlink" title="1.3 想要搜索的文件名中包含多个关键词中的一个就可以，怎么办？"></a>1.3 想要搜索的文件名中包含多个关键词中的一个就可以，怎么办？</h3><p>如果我想查询的文件名中，包含关键词1，<strong>或</strong>，包含关键词二，可以在两个关键词中间加竖线（注意竖线前后都有空格），例如coffee | orange</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2346551-95f7f5b6385d0833.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/860/format/webp" alt=""></p>
-<p>两个关键词满足一个就可以，使用“或”的关系</p>
-<h3 id="1-4-只搜索目录名，不想要文件名怎么办？"><a href="#1-4-只搜索目录名，不想要文件名怎么办？" class="headerlink" title="1.4 只搜索目录名，不想要文件名怎么办？"></a>1.4 只搜索目录名，不想要文件名怎么办？</h3><p>如果只想显示符合条件的目录，鼠标点选右上角的下拉框，把显示范围从Everything（全部），改为folder（文件夹）</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2346551-f7bade6adac99e16.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/849/format/webp" alt="只显示符合条件的文件夹"></p>
-<h3 id="1-5-只搜索某目录下的文件怎么办？"><a href="#1-5-只搜索某目录下的文件怎么办？" class="headerlink" title="1.5 只搜索某目录下的文件怎么办？"></a>1.5 只搜索某目录下的文件怎么办？</h3><p>如果只想搜索某目录下的文件，则可以用目录加反斜杠，加空格，加关键词的方式进行搜索，例如：downloads\ 华为</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2346551-cf50517c83645f63.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/844/format/webp" alt="只搜索某目录下的满足条件的文件"></p>
-<h3 id="1-6-只搜索某种类型的文件怎么办？"><a href="#1-6-只搜索某种类型的文件怎么办？" class="headerlink" title="1.6 只搜索某种类型的文件怎么办？"></a>1.6 只搜索某种类型的文件怎么办？</h3><p>如果想搜索某种特定类型的文件，可以使用<em>.加文件类型后缀的方式，例如downloads\ </em>.pdf，就只显示该目录下的pdf文件，其他文件就不显示了。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2346551-11568ee05e6f2d7c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/846/format/webp" alt="搜索某种特定类型的文件"></p>
-<p>搜索某种特定类型的文件，使用*.后缀就可以了</p>
-<h3 id="1-7-如何使用通配符？"><a href="#1-7-如何使用通配符？" class="headerlink" title="1.7 如何使用通配符？"></a>1.7 如何使用通配符？</h3><p>刚才我们已经举了两种使用通配符<em>的例子，简单讲</em>代表任意字符，问号(?)是代表一个字符（任意字符），例如：downloads\ *.p??，会显示downloads目录下的pdf文件，ppt文件等等，但不会显示pptx文件</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2346551-d14ce197df94dd58.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/841/format/webp" alt="通配符?能够匹配任意一个字符"></p>
-<p>通配符?能够匹配任意一个字符</p>
-<h3 id="1-8-搜索不包含某关键词的文件名怎么办？"><a href="#1-8-搜索不包含某关键词的文件名怎么办？" class="headerlink" title="1.8 搜索不包含某关键词的文件名怎么办？"></a>1.8 搜索不包含某关键词的文件名怎么办？</h3><p>不包含由!代表，例如，我们想搜索downloads目录下不是pdf文件的其他文件，可以这样写：downloads\ !<em>.pdf !</em>.docx</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2346551-1aed361c72869189.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/843/format/webp" alt="叹号代表否定"></p>
-<p>叹号代表否定</p>
-<h3 id="1-9-搜索的关键词中包含空格怎么办？"><a href="#1-9-搜索的关键词中包含空格怎么办？" class="headerlink" title="1.9 搜索的关键词中包含空格怎么办？"></a>1.9 搜索的关键词中包含空格怎么办？</h3><p>上面你可能已经看出来了，查询关键字中的空格，代表“且”的意思，即两个关键词中间如果有空格的话，代表同时包含两个关键词。但如果我想查询的关键词本身包含空格怎么办呢？ 可以用双引号把它们括起来，这样everything就会把它看待成一个词了。例如，我想查询downloads目录下包含university of bath的文件，可以写： downloads\ “university of”</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2346551-d08a02722dc1166e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/848/format/webp" alt=""></p>
-<p>如果查询的关键字本身包含空格，应该用双引号把它引起来</p>
-<h2 id="2-Everything的web服务器"><a href="#2-Everything的web服务器" class="headerlink" title="2. Everything的web服务器"></a>2. Everything的web服务器</h2><p>好了，everything的功能介绍完了，希望大家都能把它的功能用到极致，也不枉作者好心开发这么好的工具，免费放出来给大家用，也不枉那么那么多的小伙伴在网路上推荐它呀</p>
-<p>最后，Everything还有一个功能提一下，就是可以从手机或平板上通过浏览器访问它，这样的话，您就可以从手机上搜索自己电脑上的电影看了。打开everything的网站功能：从菜单Tools（工具）-Options（选项）的对话框，选择Http Server（Http服务器），然后勾选第一个勾选框，下面第三行有一个端口号要记住，假设是10000，那么你在手机浏览器的地址栏输入http://电脑IP：10000就可以访问了。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2346551-be12b5e8eeab5f9d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/885/format/webp" alt=""></p>
-<p>打开Everything的web服务器可以从手机上访问您的文件哦</p>
+                <h3 id="什么是-JVM"><a href="#什么是-JVM" class="headerlink" title="什么是 JVM"></a>什么是 JVM</h3><p>先来看下百度百科的解释：</p>
+<blockquote>
+<p>JVM 是 Java Virtual Machine（Java 虚拟机）的缩写，JVM 是一种用于计算设备的规范，它是<strong>一个虚构出来的计算机</strong>，是通过在实际的计算机上仿真模拟各种计算机功能来实现的。</p>
+</blockquote>
+<p>晦涩难懂有没有，简单理解就是说虚拟机是物理机的软件实现。</p>
+<p>Java 的设计理念是 WORA（Write Once Run Anywhere，一次编写到处运行）。编译器将 Java 文件编译为 Java .class 文件，然后将 .class 文件输入到 JVM 中，JVM 执行类文件的加载和执行，最后转变成机器可以识别的机器码进行最终的操作。</p>
+<h3 id="为什么要学习-JVM"><a href="#为什么要学习-JVM" class="headerlink" title="为什么要学习 JVM"></a>为什么要学习 JVM</h3><p>每个 Java 开发人员都知道字节码经由 JRE（Java 运行时环境）执行。但他们或许不知道 JRE 其实是由 Java 虚拟机（JVM）实现，JVM 分析字节码，解释并执行它。作为开发人员，了解 JVM的 架构是非常重要的，因为它使我们能够编写出更高效的代码。</p>
+<p>但是 JVM 在帮我们实现 Write Once Run Anywhere 的同时，有利有弊，因为在这个过程中涉及到了内存管理，尤其是多线程情况下的内存管理问题，所以我们更应该学习 JVM 的知识来帮助自己写出更好的代码。</p>
+<p>根据上边对 JVM 的概念介绍我们知道，JVM 的主要作用在于以下两方面，之后我们的介绍也会以此着手。</p>
+<ul>
+<li>软件层面的机器码翻译</li>
+<li>内存管理</li>
+</ul>
+<p>最近也在学习《深入理解 Java 虚拟机》这本书，此处贴个书中的图过来：</p>
+<p><img src="https://github.com/Bylant/LearningPunch/blob/master/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/assets/1552285007986.png?raw=true" alt="图来自于《深入理解 Java 虚拟机 第 2 版》"></p>
+<p>下边就详细介绍一下这张图中的各个组件</p>
+<h3 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h3><p>这个区域描述的是 Java 代码运行时的状态，是我们非常关注的一个状态-程序运行状态，因为我们写代码就是为了运行，不运行的状态对我们是没什么吸引力的。说白了 Java 代码不外乎 <strong>数据 指令 控制</strong> 这三类型语句，所以我们将 JVM 运行时数据区可以划分为如下两大类：</p>
+<ul>
+<li>数据<ul>
+<li>方法区</li>
+<li>堆（Heap）</li>
+</ul>
+</li>
+<li>指令<ul>
+<li>虚拟机栈</li>
+<li>本地方法栈</li>
+<li>程序计数器</li>
+</ul>
+</li>
+</ul>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p><strong>定义</strong>：指向<strong>当前线程正在执行</strong>的字节码指令的<strong>地址</strong> 也就是<strong>行号</strong>。</p>
+<p><strong>注意</strong>：我们需要思考一个问题，我的当前线程本身已经在执行了，为什么还要找个寄存器把他的执行行号记录下来呢？</p>
+<p>因为我们程序执行的最小单位是线程，而线程在 CPU 上执行的时候是抢占式的，这样的话就存在线程被挂起的情况，例如：有 A B 两个线程，如果 A 线程执行过程被 B 线程抢占了 CPU，则需要把挂起的 A 线程 当前执行到的行号存储下来，等到 A 重新获得 CPU 时间片执行权的时候去程序计数器获得上一次执行的行号以便于继续执行这个程序。</p>
+<p>所以，每个线程都有自己的 程序计数器，而且是互不干扰的，属于<strong>线程私有区域</strong></p>
+<ul>
+<li>如果执行的是一个 Java 方法，计数器记录的是正在执行的虚拟机字节码指令的地址</li>
+<li>如果执行的是一个 Native 方法，计数器的值则为空（undefined）</li>
+</ul>
+<h4 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h4><p><strong>定义</strong>：存储当前线程运行方法所需要的数据、指令和返回地址，生命周期与线程相同，同样属于<strong>线程私有区域</strong>。</p>
+<p>每个 Java 方法在执行的同时都会创建一个栈帧用于存储局部变量、操作数栈、方法出口等信息，</p>
+<p>如下所示，这个栈帧会存储的信息包括：</p>
+<ul>
+<li><p>局部变量表</p>
+</li>
+<li><p>操作数栈</p>
+</li>
+<li><p>动态链接</p>
+</li>
+<li><p>出口</p>
+</li>
+<li><p>… …</p>
+</li>
+</ul>
+<p>每一个方法从调用直至执行完成的过程，其实真正对应的是一个栈帧在虚拟机栈中入栈到出栈的过程。</p>
+<p>其中局部变量表存放了编译器可知的各种基本数据类型、引用对象等。需要注意的是因为局部变量表空间长度只有 32 位，如果是 long 和 double 类型的话会占用 2 个局部变量表空间，其他数据类型只占用 1 个。</p>
+<p><strong>注意</strong>：局部变量表所需的内存空间在编译期间就会车队分配完成，因为在进入一个方法时，这个方法需要在栈帧中分配多大的局部空间是完全确定的，方法运行期间局部变量大小是不会改变的。</p>
+<h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><p>和虚拟机栈类似，只不过他存储的是当前线程调用的本地方法所需要的数据、指令和返回地址等，本地方法时标识有 Native 关键字的方法，此处就不展开描述了，参考上述虚拟机栈的介绍。</p>
+<p>另外，根据《深入理解 Java 虚拟机》这本书的介绍，有些虚拟机（如 Sun HotSpot 虚拟机）直接就把本地方法栈和虚拟机栈合二为一了。</p>
+<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>这块区域属于线程共享群与，主要存储的信息包括已被虚拟机你加载的类信息（类的元信息）、常量、静态变量、JIT（编译器编译后的代码）等数据。</p>
+<p>方法区有一块区域我们称之为 <strong>运行时常量池</strong>，存放编译期生成的各种字面量和符号引用，运行时常量池有一个重要特征是具备动态性，也就是说在运行期间依然可以将新的常量放入池中，我们开发常用的有 String 类的 intern() 方法</p>
+<h3 id="堆（Heap）"><a href="#堆（Heap）" class="headerlink" title="堆（Heap）"></a>堆（Heap）</h3><p>属于线程共享区域，在虚拟机启动时创建，是虚拟机管理的内存中最大的一块。它的唯一作用就是存放对象实例。</p>
+<p>根据虚拟机规范的描述是：所有的对象实例及数组都要在堆上分配。当然随着现在技术的发展优化这个也变得没有那么绝对，后续会进行分享。</p>
+<p>这块区域也是垃圾收集器管理的主要区域，现如今流行的垃圾回收器基本都采用的是分代收集算法，所以也就衍生了一些分代方式，</p>
+<p>比如对于内存模型的划分，在 JDK1.8 以前的版本基本是这样的：</p>
+<p><img src="F:/Study/LearningPunch/JVM/assets/1552365212876.png" alt="1552365212876"></p>
+<ul>
+<li>新生代<ul>
+<li>Eden</li>
+<li>s0</li>
+<li>s1</li>
+</ul>
+</li>
+<li>老年代</li>
+<li>永久代</li>
+</ul>
+<p>在 JDK 1.8 以后的版本：</p>
+<p><img src="F:/Study/LearningPunch/JVM/assets/1552365244555.png" alt="1552365244555"></p>
+<ul>
+<li>新生代</li>
+<li>老年代</li>
+<li>Meta Space</li>
+</ul>
+<p>此处小提一下，之所以在 JDK 1.8 以后 有了 Meta Space，其设计的目的在于规避永久代溢出的问题，因为 Meta Space 是可以自动扩容的，就跟 Java 中的集合一样。</p>
+<p>以上种种的划分方式，都是为了更好地回收内存或者分配内存，从下一篇开始就开始学习内存分配及垃圾回收相关算法啦！</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>JVM 负责软件层面的机器码翻译，可以把我们写的 .java 文件翻译成机器可以识别的机器码</li>
+<li>JVM 负责内存管理</li>
+<li>JVM 的运行时数据区包括方法区、堆、虚拟机栈、本地方法栈和程序计数器</li>
+<li>JVM 中的方法区和堆区是所有线程共享的，其他区域都是线程独享的</li>
+</ul>
 
             </div>
             <hr>
@@ -622,7 +678,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">程序猿杂货铺的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/29/everything-ru-he-yong-dao-ji-zhi/" class="b-link-green">EveryThing如何用到极致？</a>
+                    <a href="/2019/03/12/jvm-cong-ru-men-dao-shi-zhan-01-jvm-ji-ben-jie-shao/" class="b-link-green">JVM从入门到实战---01 JVM基本介绍</a>
                 </p>
             </div>
         </div>
@@ -645,39 +701,41 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/01/29/ri-zhi-tuo-min/">
+                <a href="/2019/03/12/jvm-cong-ru-men-dao-shi-zhan-01-jvm-ji-ben-jie-shao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="日志脱敏">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="JVM从入门到实战---01 JVM基本介绍">
                         
-                        <span class="card-title">日志脱敏</span>
+                        <span class="card-title">JVM从入门到实战---01 JVM基本介绍</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
- 本文首发于一个朋友的公众号： java界的小学生
+                    <div class="summary">什么是 JVM先来看下百度百科的解释：
 
-引言在日常工作中，日志处理是我们每一个程序员必备的素质，但是在有些场景下客户信息敏感，需要进行某些字段，或者某部分字段的脱敏处理。接到需求我们开始操刀！
-需求分析处理字段的方式多种多样</div>
+JVM 是 Java Virtual Machine（Java 虚拟机）的缩写，JVM 是一种用于计算设备的规范，它是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的。
+
+</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/日志/" class="post-category" target="_blank">
-                                    日志
+                            <a href="/categories/JVM/" class="post-category" target="_blank">
+                                    JVM
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -685,12 +743,8 @@
                         <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/SpringBoot/" target="_blank">
-                        <span class="chip bg-color">SpringBoot</span>
-                    </a>
-                    
-                    <a href="/tags/自定义注解/" target="_blank">
-                        <span class="chip bg-color">自定义注解</span>
+                    <a href="/tags/JVM/" target="_blank">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
@@ -704,28 +758,44 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/01/29/hello-world/">
+                <a href="/2019/03/06/wo-zhi-shi-yi-ge-ping-yong-cheng-xu-yuan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="我只是一个平庸程序员">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">我只是一个平庸程序员</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex</div>
+                    <div class="summary">
+阅读本文大概需要8分钟
+
+我个人认为有一些程序员就是天才，他们可以轻而易举地创造一些了不起的软件产品。因为这群天才的存在，我们对这个行业充满了期待。但是有一个悲伤的事实是：不是每一个人都是大师级的程序员。
+实际上这就是我，一个平庸的程序员</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-06
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            zhoudl
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/猿说/" class="post-category" target="_blank">
+                                    猿说
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/程序人生/" target="_blank">
+                        <span class="chip bg-color">程序人生</span>
+                    </a>
+                    
                 </div>
                 
             </div>
